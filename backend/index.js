@@ -5,7 +5,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 const characterRoutes = require('./routes/characters');
-app.use('/api/characters', characterRoutes);
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger-output.json');
@@ -18,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 //API route
+app.use('/api/characters', characterRoutes);
 
 // Swagger Documentation route
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));

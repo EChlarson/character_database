@@ -12,37 +12,65 @@
   ],
   "paths": {
     "/api/characters/": {
+      
+      
       "get": {
-        "description": "",
+        "summary": "Get all characters",
+        "description": "Retrieve a list of all fictional characters stored in the database.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "List of characters"
           }
         }
       },
+      
+      
       "post": {
-        "description": "",
+        "summary": "Add a new character",
+        "description": "Create and store a new fictional character in the database.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "character",
+            "description": "Character object that needs to be added to the database",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Katniss Everdeen"
+                },
+                "age": {
+                  "type": "integer",
+                  "example": 16
+                },
+                "occupation": {
+                  "type": "string",
+                  "example": "Hunter / Tribute"
+                },
+                "personality": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["brave", "protective", "independent"]
+                },
+                "source": {
+                  "type": "string",
+                  "example": "The Hunger Games"
+                }
+              },
+              "required": ["name", "age", "occupation", "personality", "source"]
+            }
+          }
+        ],
         "responses": {
           "201": {
-            "description": "Created"
-          }
-        }
-      }
-    },
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "responses": {
-          "201": {
-            "description": "Created"
+            "description": "Character successfully created"
+          },
+          "400": {
+            "description": "Invalid input"
           }
         }
       }

@@ -1,0 +1,16 @@
+// backend/swagger.js
+const swaggerAutogen = require('swagger-autogen')();
+
+const doc = {
+  info: {
+    title: 'Fictional Characters API',
+    description: 'API for managing a collection of fictional characters from young adult novels.',
+  },
+  host: 'localhost:3000', // Change later when deployed
+  schemes: ['http'],
+};
+
+const outputFile = './swagger-output.json';
+const endpointsFiles = ['./index.js', './routes/characters.js'];
+
+swaggerAutogen(outputFile, endpointsFiles, doc);

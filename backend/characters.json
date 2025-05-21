@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Katniss Everdeen",
+    "age": 16,
+    "occupation": "Hunter / Tribute",
+    "personality": ["brave", "protective", "independent"],
+    "source": "The Hunger Games"
+  },
+  {
+    "name": "Harry Potter",
+    "age": 17,
+    "occupation": "Student / Wizard",
+    "personality": ["loyal", "brave", "curious"],
+    "source": "Harry Potter Series"
+  },
+  {
+    "name": "Bella Swan",
+    "age": 17,
+    "occupation": "Student",
+    "personality": ["introverted", "curious", "devoted"],
+    "source": "Twilight"
+  },
+  {
+    "name": "Percy Jackson",
+    "age": 16,
+    "occupation": "Demigod / Hero",
+    "personality": ["sarcastic", "brave", "loyal"],
+    "source": "Percy Jackson & the Olympians"
+  },
+  {
+    "name": "Tris Prior",
+    "age": 16,
+    "occupation": "Initiate",
+    "personality": ["fearless", "selfless", "curious"],
+    "source": "Divergent"
+  },
+  {
+    "name": "Lara Jean Covey",
+    "age": 16,
+    "occupation": "Student",
+    "personality": ["romantic", "shy", "thoughtful"],
+    "source": "To All the Boys I’ve Loved Before"
+  },
+  {
+    "name": "Augustus Waters",
+    "age": 17,
+    "occupation": "Student",
+    "personality": ["charming", "philosophical", "confident"],
+    "source": "The Fault in Our Stars"
+  },
+  {
+    "name": "Clary Fray",
+    "age": 18,
+    "occupation": "Shadowhunter",
+    "personality": ["bold", "artistic", "determined"],
+    "source": "The Mortal Instruments"
+  }
+]

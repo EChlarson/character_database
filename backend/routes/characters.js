@@ -1,7 +1,7 @@
 // backend/routes/characters.js
 const express = require('express');
 const router = express.Router();
-const Character = require('../models/Character');
+const Character = require('../models/character');
 
 // GET all characters from the database
 router.get('/', async (req, res) => {

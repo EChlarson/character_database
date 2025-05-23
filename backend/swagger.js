@@ -1,13 +1,16 @@
 // backend/swagger.js
 const swaggerAutogen = require('swagger-autogen')();
 
+const isProduction = process.env.NODE_ENV === 'production';
+const productionHost = 'cse341-redo.onrender.com';
+
 const doc = {
   info: {
     title: 'Fictional Characters API',
     description: 'API for managing a collection of fictional characters from young adult novels.',
   },
-  host: 'localhost:3000', // Change later when deployed
-  schemes: ['http'],
+   host: isProduction ? productionHost : 'localhost:8080',
+   schemes: isProduction ? ['https'] : ['http'],
 };
 
 const outputFile = './swagger-output.json';

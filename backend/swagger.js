@@ -2,7 +2,7 @@
 const swaggerAutogen = require('swagger-autogen')();
 
 const isProduction = process.env.NODE_ENV === 'production';
-const productionHost = 'cse341-redo.onrender.com';
+const productionHost = 'characters-352f.onrender.com';
 
 const doc = {
   info: {

@@ -74,6 +74,79 @@
           }
         }
       }
+    },
+
+    "/api/characters/{id}": {
+      "put": {
+        "summary": "Update a character by ID",
+        "description": "Update a fictional character's information using their unique ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the character to update",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "character",
+            "description": "Updated character object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string", "example": "Katniss Everdeen" },
+                "age": { "type": "integer", "example": 17 },
+                "occupation": { "type": "string", "example": "Hunter / Tribute" },
+                "personality": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "example": ["brave", "protective", "independent"]
+                },
+                "source": { "type": "string", "example": "The Hunger Games" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Character successfully updated"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Character not found"
+          }
+        }
+      },
+      
+      
+      "delete": {
+        "summary": "Delete a character by ID",
+        "description": "Delete a fictional character using their unique ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the character to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Character successfully deleted"
+          },
+          "404": {
+            "description": "Character not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
     }
   }
 }

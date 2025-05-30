@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Character = require('../models/character');
+const mongoose = require('mongoose');
 
 // GET all characters from the database
 router.get('/', async (req, res) => {

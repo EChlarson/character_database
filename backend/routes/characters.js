@@ -5,6 +5,13 @@ const Character = require('../models/character');
 
 // GET all characters from the database
 router.get('/', async (req, res) => {
+
+  const id = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid ID format' });
+  }
+
   try {
     const characters = await Character.find();
     res.status(200).json(characters);
@@ -20,7 +27,10 @@ router.post('/', async (req, res) => {
     await newCharacter.save();
     res.status(201).json({ message: 'Character created', newCharacter });
   } catch (error) {
-    res.status(400).json({ message: 'Error adding character', error });
+    if (error.name === 'ValidationError') {
+      return res.status(400).json({ message: 'Validation failed', error: error.message });
+    }
+    res.status(500).json({ message: 'Server error', error });
   }
 });
 
@@ -38,7 +48,10 @@ router.put('/:id', async (req, res) => {
 
     res.status(200).json({ message: 'Character updated', updatedCharacter });
   } catch (error) {
-    res.status(400).json({ message: 'Error updating character', error });
+    if (error.name === 'ValidationError') {
+      return res.status(400).json({ message: 'Validation failed', error: error.message });
+    }
+    res.status(500).json({ message: 'Server error', error });
   }
 });
 

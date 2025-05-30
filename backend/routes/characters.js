@@ -2,17 +2,9 @@
 const express = require('express');
 const router = express.Router();
 const Character = require('../models/character');
-const mongoose = require('mongoose');
 
 // GET all characters from the database
 router.get('/', async (req, res) => {
-
-  const id = req.params.id;
-
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ message: 'Invalid ID format' });
-  }
-
   try {
     const characters = await Character.find();
     res.status(200).json(characters);

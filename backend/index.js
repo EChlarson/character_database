@@ -4,6 +4,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
+//OAuth
+const session = require('express-session');
+const passport = require('passport');
+require('./passport');
+
 const characterRoutes = require('./routes/characters');
 
 const swaggerUi = require('swagger-ui-express');
@@ -13,6 +18,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 const allowedOrigins = [
   'http://localhost:3000',
   'https://characters-352f.onrender.com'
